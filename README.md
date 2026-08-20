@@ -20,15 +20,10 @@ frontend/          React SPA (Vite, Tailwind)
 backend/            Spring Boot REST API (Java 17, Maven)
 dotnet-backend/      ASP.NET Core REST API (.NET 9) + BookwormNotificationService (invoice emails)
 database/           MySQL schema + seed SQL, run in numbered order
-docker/             MySQL init scripts used by docker-compose
-docker-compose.yml  Full .NET-stack container setup (mysql + api + notification + frontend)
-SETUP.md            Full local Windows setup walkthrough (Java backend + frontend, bare metal)
-GitHub-Workflow.md  Team git workflow conventions
+docker/             MySQL init scripts for a Dockerized MySQL setup
 ```
 
 ## Quick start (local, bare metal)
-
-Full step-by-step instructions — including seeded login accounts and how to reset the database before a demo — are in [`SETUP.md`](SETUP.md). Summary:
 
 1. Install JDK 17, MySQL 8, and Node 20+.
 2. Load the database, **in order**:
@@ -56,19 +51,6 @@ Full step-by-step instructions — including seeded login accounts and how to re
    ```
 5. Open the printed URL (usually `http://localhost:5173`).
 
-## Quick start (Docker)
-
-`docker-compose.yml` at the repo root brings up MySQL, the .NET API, the notification service, and the frontend together:
-
-```bash
-docker compose up --build
-```
-
-Then open `http://localhost:8082`.
-
 ## Documentation
 
-- [`SETUP.md`](SETUP.md) — full local setup walkthrough
 - [`dotnet-backend/README.md`](dotnet-backend/README.md) — .NET backend architecture
-- [`GitHub-Workflow.md`](GitHub-Workflow.md) — branching/PR conventions
-- [`AUDIT_REPORT.md`](AUDIT_REPORT.md) — project audit notes
