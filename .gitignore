@@ -1,0 +1,32 @@
+.env
+
+# Large/duplicate archives and raw data assets
+dotnet-backend.zip
+Books DATA/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# .NET build output
+bin/
+obj/
+
+# Java build output
+target/
+
+# Logs
+logs/
+*.log
+
+# Stray zero-byte crash artifacts
+Microsoft.AspNetCore.Connections.AddressInUseException
+System.Net.Sockets.SocketException
+
+# OS/editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea

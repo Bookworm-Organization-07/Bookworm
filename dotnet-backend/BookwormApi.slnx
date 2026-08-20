@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BookwormApi/BookwormApi.csproj" />
+  <Project Path="BookwormNotificationService/BookwormNotificationService.csproj" />
+</Solution>
