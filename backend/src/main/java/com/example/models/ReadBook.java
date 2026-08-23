@@ -2,7 +2,6 @@ package com.example.models;
 
 import jakarta.persistence.*;
 
-/** The PDF behind a product. One row per product. */
 @Entity
 @Table(name = "pdf_book")
 public class ReadBook {

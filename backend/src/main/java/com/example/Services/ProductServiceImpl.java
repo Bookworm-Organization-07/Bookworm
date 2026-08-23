@@ -68,7 +68,6 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(Integer id, Product product) {
         Product existing = getProductById(id);
 
-        // -------- Basic info --------
         if (product.getProductName() != null)
             existing.setProductName(product.getProductName());
         if (product.getProductDescriptionShort() != null)
@@ -80,7 +79,6 @@ public class ProductServiceImpl implements ProductService {
         if (product.getProductIsbn() != null)
             existing.setProductIsbn(product.getProductIsbn());
 
-        // -------- Pricing --------
         if (product.getProductBaseprice() != null)
             existing.setProductBaseprice(product.getProductBaseprice());
         if (product.getProductOfferprice() != null)
@@ -92,7 +90,6 @@ public class ProductServiceImpl implements ProductService {
         if (product.getProductOffPriceExpirydate() != null)
             existing.setProductOffPriceExpirydate(product.getProductOffPriceExpirydate());
 
-        // -------- Relationships --------
         if (product.getProductType() != null)
             existing.setProductType(product.getProductType());
         if (product.getAuthor() != null)
@@ -104,7 +101,6 @@ public class ProductServiceImpl implements ProductService {
         if (product.getGenere() != null)
             existing.setGenere(product.getGenere());
 
-        // -------- Rental / library --------
         existing.setRentable(product.isRentable());
         existing.setLibrary(product.isLibrary());
         if (product.getRentPerDay() != null)

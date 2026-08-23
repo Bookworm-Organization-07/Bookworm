@@ -43,7 +43,6 @@ export default function HomePage() {
 
   return (
     <div className="page-shell">
-      {/* A small welcome quote, right above "Browse by Products". */}
       <p className="home-quote">
         “Every book is a journey waiting to begin.”
       </p>

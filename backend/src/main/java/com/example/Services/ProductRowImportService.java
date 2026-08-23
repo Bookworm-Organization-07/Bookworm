@@ -181,10 +181,6 @@ public class ProductRowImportService {
                 product.getProductId());
     }
 
-    // =================================================================
-    // "Type/Language/category" splitting
-    // =================================================================
-
     /** e.g. "e-Book/मराठी/कथा" -> ["e-Book", "मराठी", "कथा"] */
     private String[] splitTypeLanguageCategory(String raw) {
         if (raw == null || raw.isBlank()) {
@@ -196,10 +192,6 @@ public class ProductRowImportService {
         }
         return parts;
     }
-
-    // =================================================================
-    // Find-or-create lookups
-    // =================================================================
 
     private Product_Type resolveProductType(String rawType) {
         String translated = PRODUCT_TYPE_TRANSLATION.getOrDefault(rawType.trim().toLowerCase(), rawType.trim());
@@ -259,10 +251,6 @@ public class ProductRowImportService {
                 });
     }
 
-    // =================================================================
-    // Pricing and availability
-    // =================================================================
-
     /**
      * special_price becomes the product's offer price. There is no
      * expiry date for it in the source file, so it is given a very long
@@ -301,10 +289,6 @@ public class ProductRowImportService {
             product.setMinRentDays(DEFAULT_MIN_RENT_DAYS);
         }
     }
-
-    // =================================================================
-    // Small helpers
-    // =================================================================
 
     private String truncate(String value, int maxLength) {
         if (value == null || value.length() <= maxLength) {

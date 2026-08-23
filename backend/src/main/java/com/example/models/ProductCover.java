@@ -2,7 +2,6 @@ package com.example.models;
 
 import jakarta.persistence.*;
 
-/** The cover image behind a product. One row per product. */
 @Entity
 @Table(name = "product_cover")
 public class ProductCover {

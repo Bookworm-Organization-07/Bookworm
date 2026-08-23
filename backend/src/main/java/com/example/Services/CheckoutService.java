@@ -162,10 +162,6 @@ public class CheckoutService {
         return transaction;
     }
 
-    // =================================================================
-    // Pricing
-    // =================================================================
-
     /**
      * Price of one copy.
      *
@@ -218,10 +214,6 @@ public class CheckoutService {
 
         return product.getProductBaseprice().setScale(MONEY_SCALE, ROUNDING);
     }
-
-    // =================================================================
-    // Royalty
-    // =================================================================
 
     /**
      * Records what this line earned and splits it evenly across the

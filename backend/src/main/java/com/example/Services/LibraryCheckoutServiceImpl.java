@@ -113,11 +113,9 @@ public class LibraryCheckoutServiceImpl implements LibraryCheckoutService {
         LocalDate today = LocalDate.now();
         LocalDateTime now = LocalDateTime.now();
 
-        // -------------------------------------------------------------
         // Reuse a live package of the same kind, or sell a new one.
         // Only a new package creates a charge; topping up an existing one
         // must not bill the reader a second time.
-        // -------------------------------------------------------------
         LibraryPackagePurchase activePurchase = findActivePurchase(user, libraryPackage, now);
 
         Transaction transaction = new Transaction();
@@ -147,13 +145,11 @@ public class LibraryCheckoutServiceImpl implements LibraryCheckoutService {
             purchase = purchaseRepository.save(purchase);
         }
 
-        // -------------------------------------------------------------
         // Enforce the book limit across everything already borrowed
         // through a library package. This deliberately does NOT count
         // books the reader separately paid to rent (LibraryAccessType.RENT)
         // - a rental is a different transaction and must never eat into
         // a package's book limit.
-        // -------------------------------------------------------------
         int alreadyBorrowed = myLibraryRepository.countByUser_UserIdAndAccessTypeAndEndDateAfter(
                 user.getUserId(), LibraryAccessType.LEND, today);
 

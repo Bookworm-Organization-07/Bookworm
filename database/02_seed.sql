@@ -12,16 +12,10 @@
 
 USE bookworm_delta;
 
--- ---------------------------------------------------------------------
--- user
--- ---------------------------------------------------------------------
 INSERT INTO `user` (User_Name, User_Email, User_Phone, User_Address, User_Password, is_Admin, Join_Date) VALUES
 ('Bookworm Admin', 'admin@bookworm.com',  '9820011111', 'Fort, Mumbai 400001',   '$2b$10$hO1Lo4.XDEibX7jDYiaWCOPgA5PyTVkNx88YtNosRpyObei1JWO1a', TRUE,  '2026-01-05'),
 ('Asha Kulkarni',  'reader@bookworm.com', '9820022222', 'Kothrud, Pune 411038',  '$2b$10$CnWT6xrj7/cZD4JK5NDB6OO6gzC00zU.PmDqBcm18u2IrD82VerfS', FALSE, '2026-02-14');
 
--- ---------------------------------------------------------------------
--- author
--- ---------------------------------------------------------------------
 INSERT INTO author (Name, Bio) VALUES
 ('V. S. Khandekar',   'Jnanpith-winning Marathi novelist, best known for Yayati.'),
 ('Premchand',         'Pioneer of modern Hindi and Urdu social fiction.'),
@@ -29,35 +23,20 @@ INSERT INTO author (Name, Bio) VALUES
 ('Sudha Murty',       'Author and philanthropist writing in English and Kannada.'),
 ('Ranjit Desai',      'Marathi historical novelist, best known for Shriman Yogi.');
 
--- ---------------------------------------------------------------------
--- publisher
--- ---------------------------------------------------------------------
 INSERT INTO publisher (Name, Email) VALUES
 ('Mehta Publishing House', 'rights@mehtapublishing.in'),
 ('Rajkamal Prakashan',     'contact@rajkamal.in'),
 ('Jaico Publishing',       'hello@jaico.in');
 
--- ---------------------------------------------------------------------
--- language
--- ---------------------------------------------------------------------
 INSERT INTO `language` (Language_Desc) VALUES
 ('Marathi'), ('Hindi'), ('Konkani'), ('English');
 
--- ---------------------------------------------------------------------
--- genere
--- ---------------------------------------------------------------------
 INSERT INTO genere (Genere_Desc) VALUES
 ('Fiction'), ('Historical'), ('Short Stories'), ('Biography'), ('Poetry');
 
--- ---------------------------------------------------------------------
--- product_type_master
--- ---------------------------------------------------------------------
 INSERT INTO product_type_master (Type_Desc) VALUES
 ('eBook'), ('Audiobook'), ('Music'), ('Film');
 
--- ---------------------------------------------------------------------
--- attribute
--- ---------------------------------------------------------------------
 INSERT INTO attribute (Attribute_Desc) VALUES
 ('Pages'), ('Edition'), ('Duration (minutes)'), ('Format');
 
@@ -120,9 +99,6 @@ VALUES
  'A companion to Wise and Otherwise. The subjects are unremarkable people in unremarkable circumstances, which is the point: the book argues that decency shows up in small, unwitnessed decisions.',
  '9780143063223', TRUE, FALSE, 7.00, 2, NULL);
 
--- ---------------------------------------------------------------------
--- product_attribute
--- ---------------------------------------------------------------------
 INSERT INTO product_attribute (product_id, attribute_id, attribute_value) VALUES
 (1, 1, '600'), (1, 2, '35th'),
 (2, 1, '344'), (2, 2, '12th'),

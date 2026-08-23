@@ -20,7 +20,6 @@ public class Product {
     @Column(name = "product_name_english", length = 150)
     private String productNameEnglish;
 
-    // -------- Relationships (Foreign Keys) --------
     // There is no Attribute reference here on purpose. A product's
     // attributes are rows in product_attribute, which is what lets a
     // product carry more than one.
@@ -45,8 +44,6 @@ public class Product {
     @JoinColumn(name = "product_genere")
     private Genere genere;
 
-    // -------- Pricing --------
-
     @Column(name = "product_baseprice", nullable = false, precision = 10, scale = 2)
     private BigDecimal productBaseprice;
 
@@ -59,20 +56,14 @@ public class Product {
     @Column(name = "royalty_percent", precision = 5, scale = 2)
     private BigDecimal royaltyPercent;
 
-    // -------- Dates --------
-
     @Column(name = "product_off_price_expirydate")
     private LocalDate productOffPriceExpirydate;
-
-    // -------- Descriptions --------
 
     @Column(name = "product_description_short")
     private String productDescriptionShort;
 
     @Column(name = "product_description_long", columnDefinition = "TEXT")
     private String productDescriptionLong;
-
-    // -------- Other Details --------
 
     @Column(name = "product_isbn", length = 20, nullable = false, unique = true)
     private String productIsbn;
@@ -94,8 +85,6 @@ public class Product {
 
     public Product() {
     }
-
-    // -------- Getters and Setters --------
 
     public int getProductId() {
         return productId;

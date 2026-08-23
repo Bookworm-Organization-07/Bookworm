@@ -38,11 +38,9 @@ public class SecurityConfig {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
             .authorizeHttpRequests(auth -> auth
-                // ---- Public: sign on, sign up, health ----
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/actuator/health", "/actuator/info").permitAll()
 
-                // ---- Public: browsing the catalogue ----
                 // Reads only. The write verbs fall through to the admin
                 // rules below, so the catalogue cannot be edited
                 // anonymously.
@@ -52,7 +50,6 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/product-types/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/library-packages/**").permitAll()
 
-                // ---- Admin only ----
                 .requestMatchers("/api/products/**").hasRole("ADMIN")
                 .requestMatchers("/api/library-packages/**").hasRole("ADMIN")
                 .requestMatchers("/api/beneficiaries/**").hasRole("ADMIN")
@@ -63,7 +60,6 @@ public class SecurityConfig {
                 .requestMatchers("/api/orders/history").hasRole("ADMIN")
                 .requestMatchers("/actuator/**").hasRole("ADMIN")
 
-                // ---- Signed-in readers ----
                 // These endpoints work out who the caller is from the
                 // token, so there is no id in the path to tamper with.
                 .anyRequest().authenticated()

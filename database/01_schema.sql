@@ -21,9 +21,6 @@ CREATE DATABASE bookworm_delta
     COLLATE utf8mb4_unicode_ci;
 USE bookworm_delta;
 
--- ---------------------------------------------------------------------
--- 1. user
--- ---------------------------------------------------------------------
 CREATE TABLE `user` (
     User_ID       INT AUTO_INCREMENT PRIMARY KEY,
     User_Name     VARCHAR(80)  NOT NULL,
@@ -35,43 +32,28 @@ CREATE TABLE `user` (
     Join_Date     DATE
 );
 
--- ---------------------------------------------------------------------
--- 2. author
--- ---------------------------------------------------------------------
 CREATE TABLE author (
     Author_ID INT AUTO_INCREMENT PRIMARY KEY,
     Name      VARCHAR(100) NOT NULL,
     Bio       TEXT
 );
 
--- ---------------------------------------------------------------------
--- 3. publisher
--- ---------------------------------------------------------------------
 CREATE TABLE publisher (
     Publisher_ID INT AUTO_INCREMENT PRIMARY KEY,
     Name         VARCHAR(100) NOT NULL,
     Email        VARCHAR(80)  NOT NULL UNIQUE
 );
 
--- ---------------------------------------------------------------------
--- 4. language
--- ---------------------------------------------------------------------
 CREATE TABLE `language` (
     Language_id   INT AUTO_INCREMENT PRIMARY KEY,
     Language_Desc VARCHAR(50) NOT NULL UNIQUE
 );
 
--- ---------------------------------------------------------------------
--- 5. genere
--- ---------------------------------------------------------------------
 CREATE TABLE genere (
     Genere_id   INT AUTO_INCREMENT PRIMARY KEY,
     Genere_Desc VARCHAR(50) NOT NULL UNIQUE
 );
 
--- ---------------------------------------------------------------------
--- 6. product_type_master
--- ---------------------------------------------------------------------
 CREATE TABLE product_type_master (
     Type_Id   INT AUTO_INCREMENT PRIMARY KEY,
     Type_Desc VARCHAR(50) NOT NULL UNIQUE
@@ -242,9 +224,6 @@ CREATE TABLE transactions (
     CONSTRAINT fk_transaction_user FOREIGN KEY (user_id) REFERENCES `user` (User_ID)
 );
 
--- ---------------------------------------------------------------------
--- 15. transaction_items
--- ---------------------------------------------------------------------
 CREATE TABLE transaction_items (
     item_id        INT AUTO_INCREMENT PRIMARY KEY,
     transaction_id BIGINT,
@@ -275,9 +254,6 @@ CREATE TABLE royalty_calculation (
     CONSTRAINT fk_roycal_product FOREIGN KEY (product_id) REFERENCES product (product_id)
 );
 
--- ---------------------------------------------------------------------
--- 17. product_beneficiary
--- ---------------------------------------------------------------------
 CREATE TABLE product_beneficiary (
     prodben_id       INT AUTO_INCREMENT PRIMARY KEY,
     beneficiary_id   INT NOT NULL,
@@ -290,9 +266,6 @@ CREATE TABLE product_beneficiary (
     CONSTRAINT fk_prodben_roycal      FOREIGN KEY (roycal_id)      REFERENCES royalty_calculation (roycal_id)
 );
 
--- ---------------------------------------------------------------------
--- 18. library_package_purchase
--- ---------------------------------------------------------------------
 CREATE TABLE library_package_purchase (
     purchase_id    INT AUTO_INCREMENT PRIMARY KEY,
     transaction_id BIGINT         NOT NULL,
@@ -308,9 +281,6 @@ CREATE TABLE library_package_purchase (
     CONSTRAINT fk_purchase_package     FOREIGN KEY (package_id)     REFERENCES library_package (package_id)
 );
 
--- ---------------------------------------------------------------------
--- 19. library_package_purchase_item
--- ---------------------------------------------------------------------
 CREATE TABLE library_package_purchase_item (
     item_id         INT AUTO_INCREMENT PRIMARY KEY,
     purchase_id     INT            NOT NULL,

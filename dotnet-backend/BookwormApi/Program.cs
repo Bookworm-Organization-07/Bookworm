@@ -59,12 +59,10 @@ try
     builder.Services.AddScoped<IBeneficiaryLookupService, BeneficiaryLookupService>();
     builder.Services.AddScoped<ILibraryPackageLookupService, LibraryPackageLookupService>();
 
-    // Auth
     builder.Services.AddScoped<IJwtService, JwtService>();
     builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
     builder.Services.AddScoped<IAuthService, AuthService>();
 
-    // Entity-specific business services
     builder.Services.AddScoped<IProductService, ProductService>();
     builder.Services.AddScoped<ICartService, CartService>();
     builder.Services.AddScoped<IShelfService, ShelfService>();
@@ -80,13 +78,11 @@ try
     builder.Services.AddScoped<ITransactionService, TransactionService>();
     builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
-    // Blob / PDF / email
     builder.Services.AddScoped<IProductCoverService, ProductCoverService>();
     builder.Services.AddScoped<IReadBookService, ReadBookService>();
     builder.Services.AddScoped<ITransactionPdfService, TransactionPdfService>();
     builder.Services.AddScoped<ILibraryInvoicePdfService, LibraryInvoicePdfService>();
 
-    // Bulk import
     builder.Services.AddScoped<IProductRowImportService, ProductRowImportService>();
     builder.Services.AddScoped<IExcelProductImportService, ExcelProductImportService>();
 
